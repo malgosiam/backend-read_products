@@ -20,6 +20,18 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
+      <ul>
+        <h3>Reviews:</h3>
+        {data?.reviews.map((review) => {
+          return (
+            <li key={review._id}>
+              <h4>{review.title}</h4>
+              <p>Review: {review.text}</p>
+              <h5>Rating: {review.rating}</h5>
+            </li>
+          );
+        })}
+      </ul>
       <StyledButton type="button" onClick={() => router.push("/")}>
         Back to all
       </StyledButton>
